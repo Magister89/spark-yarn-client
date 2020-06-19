@@ -4,7 +4,7 @@ lazy val commonSettings = Seq(
   organization := "com.brain",
   name := "yarn-client",
   version := "0.1",
-  scalaVersion := "2.12.10",
+  scalaVersion := "2.11.12",
 )
 
 lazy val app = (project in file(".")).
@@ -15,7 +15,7 @@ lazy val app = (project in file(".")).
 
 
 libraryDependencies ++= Seq("org.apache.hadoop" % "hadoop-client" % "2.7.5",
-  "org.apache.spark" %% "spark-sql" % "2.4.5" % "provided")
+  "org.apache.spark" %% "spark-sql" % "2.4.6" % "provided")
 
 
 
