@@ -1,24 +1,24 @@
-`spark-shell --jars com.brain.yarn-spark-client-assembly-0.1.jar \
---files \
-core-site.xml,\
-hadoop-env.sh,\
-hdfs-site.xml,\
-hive-env.sh,\
-hive-site.xml,\
-mapred-site.xml,\
-ssl-client.xml,\
-yarn-site.xml,\
-user.keytab`
+`spark-shell --jars com.brain.yarn-spark-client-assembly-0.1.jar \`<br>
+`--files \`<br>
+`core-site.xml,\`<br>
+`hadoop-env.sh,\`<br>
+`hdfs-site.xml,\`<br>
+`hive-env.sh,\`<br>
+`hive-site.xml,\`<br>
+`mapred-site.xml,\`<br>
+`ssl-client.xml,\`<br>
+`yarn-site.xml,\`<br>
+`user.keytab`<br>
 
-`import com.brain.yarnsparkclient._
-val conf = new YarnConfiguration
-conf.init()
-val ugi = new KerberosAuthentication("datalabs@CORP.BRAIN.COM", "datalabs.keytab", conf).getUgi()
-val yarnClient = new YarnKerberosClient(conf, ugi, spark)
-yarnClient.init()
-yarnClient.start()
-val ds = yarnClient.getApplications
-val types = Set("SPARK")
-val dsFiltered = yarnClient.getApplications(types)
-ds.count()
-dsFiltered.count()`
+`import com.brain.yarnsparkclient._`<br>
+`val conf = new YarnConfiguration`<br>
+`conf.init()`<br>
+`val ugi = new KerberosAuthentication("datalabs@CORP.BRAIN.COM", "datalabs.keytab", conf).getUgi()`<br>
+`val yarnClient = new YarnKerberosClient(conf, ugi, spark)`<br>
+`yarnClient.init()`<br>
+`yarnClient.start()`<br>
+`val ds = yarnClient.getApplications`<br>
+`val types = Set("SPARK")`<br>
+`val dsFiltered = yarnClient.getApplications(types)`<br>
+`ds.show()`<br>
+`dsFiltered.show()`<br>
